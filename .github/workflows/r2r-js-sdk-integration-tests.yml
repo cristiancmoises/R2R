@@ -21,17 +21,17 @@ jobs:
       - name: Start R2R Light server
         uses: ./.github/actions/start-r2r-light
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "24"
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8.x
+          version: 9
           run_install: false
       - name: Install JS SDK dependencies
         working-directory: ./js/sdk
-        run: pnpm install
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check if R2R server is running
         run: |
           curl http://localhost:7272/v2/health || echo "Server not responding"
@@ -79,17 +79,17 @@ jobs:
       - name: Start R2R Light server
         uses: ./.github/actions/start-r2r-light
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "24"
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8.x
+          version: 9
           run_install: false
       - name: Install JS SDK dependencies
         working-directory: ./js/sdk
-        run: pnpm install
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run remaining tests
         working-directory: ./js/sdk
         run: pnpm jest ${{ matrix.test-group }}
