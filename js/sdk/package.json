@@ -20,7 +20,8 @@
     "test:collections": "jest CollectionsIntegrationSuperUser CollectionsIntegrationUser",
     "test:documents": "jest DocumentsIntegrationSuperUser",
     "test:retrieval": "jest RetrievalIntegrationSuperUser",
-    "test:users": "jest UsersIntegrationSuperUser"
+    "test:users": "jest UsersIntegrationSuperUser",
+    "test:security": "npm run build && node --test test/security.cjs"
   },
   "files": [
     "dist"
@@ -34,13 +35,12 @@
     "axios": "^1.8.4",
     "form-data": "^4.0.1",
     "rrweb-snapshot": "2.0.0-alpha.4",
-    "uuid": "^10.0.0"
+    "uuid": "^11.1.1"
   },
   "devDependencies": {
     "@rrweb/record": "2.0.0-alpha.17",
     "@types/jest": "^29.5.14",
     "@types/node": "^20.17.9",
-    "@types/uuid": "^10.0.0",
     "jest": "^29.7.0",
     "prettier": "^3.4.2",
     "ts-jest": "^29.2.5",
